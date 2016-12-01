@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>	
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/0.9.16/socket.io.min.js"></script>
+		<link rel="stylesheet" href="game.css">
+	</head>
+	<body>
+		<canvas id="myCanvas" style="border:1px solid black;">
+		</canvas>
+		<div class='overlay' id="choices">
+			<div>
+  				<h1>What will your pawn evolve into?</h1>
+				<input type="radio" name="evolved" value="queen" checked>Queen
+				<input type="radio" name="evolved" value="rook">Rook
+				<input type="radio" name="evolved" value="bishop">Bishop
+				<input type="radio" name="evolved" value="knight">Knight
+				<br>
+				<br>
+				<button id='evolve-submit'> Evolve, motherfucka!! </button>
+			</div>
+		</div>
+		<div class='overlay' id="choosing">
+			<div>
+				<h1> Hang on bitch, evolution is happening. You can't rush science! </h1>
+			</div>
+		</div>	
+		<div class='pieces'>
+			<img id='black-queen' src='img/chess/black_queen.png'>
+			<img id='black-king' src='img/chess/black_king.png'>
+			<img id='black-bishop' src='img/chess/black_bishop.png'>
+			<img id='black-knight' src='img/chess/black_knight.png'>
+			<img id='black-rook' src='img/chess/black_rook.png'>
+			<img id='black-pawn' src='img/chess/black_pawn.png'>
+			<img id='white-queen' src='img/chess/white_queen.png'>
+			<img id='white-king' src='img/chess/white_king.png'>
+			<img id='white-bishop' src='img/chess/white_bishop.png'>
+			<img id='white-knight' src='img/chess/white_knight.png'>
+			<img id='white-rook' src='img/chess/white_rook.png'>
+			<img id='white-pawn' src='img/chess/white_pawn.png'>
+
+			<img id='black-checker-king' src='img/checkers/black_checker_king.png'>
+			<img id='red-checker-king' src='img/checkers/red_checker_king.png'>
+			<img id='black-checker' src='img/checkers/black_checker.png'>
+			<img id='red-checker' src='img/checkers/red_checker.png'>
+		</div>
+
+		<script type="text/javascript" src="js/drawing.js"></script>
+		<script type="text/javascript" src="js/players.js"></script>
+        <script type="text/javascript" src="js/stateMachines.js"></script>
+        <script type="text/javascript" src="js/checkersStateMachines.js"></script>
+        <script type="text/javascript" src="js/chessStateMachines.js"></script>
+        <script type="text/javascript" src="js/pieces.js"></script>
+        <script type="text/javascript" src="js/img.js"></script>
+		<script type="text/javascript" src="js/main.js"></script>
+        <script type="text/javascript" src="js/init.js"></script>
+
+	</body>
+</html>
