@@ -46,11 +46,11 @@ input[type="checkbox"].input-validation-error {
     margin-top: 40%;
     width: 75%;
 }
-
+/*in index.html*/
 #GameLogo{
     margin-left: 30%;
 }
-
+/*in login.html*/
 #RegisterSide{
     outline: 2px solid black;
 }
