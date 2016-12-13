@@ -40,3 +40,20 @@ input[type="checkbox"].input-validation-error {
 .validation-summary-valid {
     display: none;
 }
+
+.jumbotron .btn {
+    align-content: center;
+    margin-top: 40%;
+    width: 75%;
+}
+
+#GameLogo{
+    margin-left: 30%;
+}
+
+#RegisterSide{
+    outline: 2px solid black;
+}
+#LoginSide{
+    outline: 2px solid black;
+}

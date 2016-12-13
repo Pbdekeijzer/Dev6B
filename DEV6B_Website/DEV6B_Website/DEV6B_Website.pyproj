@@ -54,6 +54,7 @@
     <Folder Include="DEV6B_Website\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\static\app\content\fear_m10.jpg" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />
