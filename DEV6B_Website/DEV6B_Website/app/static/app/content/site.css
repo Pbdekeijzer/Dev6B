@@ -67,7 +67,9 @@ input[type="checkbox"].input-validation-error {
 
 /*dit is voor about-page*/
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-.row.content {height: 450px}
+.row.content {
+    height: 750px;
+}
     
 /* Set gray background color and 100% height */
 .sidenav {
@@ -82,5 +84,7 @@ input[type="checkbox"].input-validation-error {
     height: auto;
     padding: 15px;
     }
-    .row.content {height:auto;} 
+    .row.content {
+        height:auto;
+    } 
 }
