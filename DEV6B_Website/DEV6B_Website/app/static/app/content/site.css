@@ -57,3 +57,30 @@ input[type="checkbox"].input-validation-error {
 #LoginSide{
     outline: 2px solid black;
 }
+
+.sidenav {
+    padding-top: 100px;
+    margin-top: 100px;
+}
+
+
+
+/*dit is voor about-page*/
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {height: 450px}
+    
+/* Set gray background color and 100% height */
+.sidenav {
+    padding-top: 20px;
+    background-color: #f1f1f1;
+    height: 100%;
+}
+    
+/* On small screens, set height to 'auto' for sidenav and grid */
+@media screen and (max-width: 767px) {
+    .sidenav {
+    height: auto;
+    padding: 15px;
+    }
+    .row.content {height:auto;} 
+}
