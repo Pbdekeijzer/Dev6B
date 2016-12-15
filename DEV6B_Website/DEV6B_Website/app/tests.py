@@ -33,4 +33,4 @@ class ViewTest(TestCase):
     #    response = self.client.get('/about')
     #    self.assertContains(response, 'About', 3, 200)
 
-#this is a test
+#this is a test ???
