@@ -77,9 +77,13 @@ input[type="checkbox"].input-validation-error {
     padding-top: 20px;
     background-color: #f1f1f1;
     height: 100%;
-    /*margin-left: 1%;
-    margin-right: 1%;*/
+    /*padding-left: 1%;
+    padding-right: 1%;*/
     background-color: lightblue;
+}
+
+.body-content {
+    background-color: green;
 }
     
 /* On small screens, set height to 'auto' for sidenav and grid */
