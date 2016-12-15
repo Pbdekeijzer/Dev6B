@@ -58,10 +58,10 @@ input[type="checkbox"].input-validation-error {
     outline: 2px solid black;
 }
 
-.sidenav {
+/*.sidenav {
     padding-top: 100px;
     margin-top: 100px;
-}
+}*/
 
 
 
@@ -89,8 +89,6 @@ input[type="checkbox"].input-validation-error {
     padding-top: 30px;
     background-color: #f1f1f1;
     height: 100%;
-    /*padding-left: 1%;
-    padding-right: 1%;*/
     background-color: lightblue;
 }
 
@@ -107,4 +105,9 @@ input[type="checkbox"].input-validation-error {
     .row.content {
         height:auto;
     } 
+}
+
+.LeftAndRightBar {
+    margin-top: 20px;
+    /*max-height: 75%;*/
 }
