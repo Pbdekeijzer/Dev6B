@@ -104,3 +104,8 @@ input[type="checkbox"].input-validation-error {
         height:auto;
     } 
 }
+
+.LeftAndRightBar {
+    margin-top: 20px;
+    max-height: 75%;
+}
