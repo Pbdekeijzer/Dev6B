@@ -72,9 +72,13 @@ input[type="checkbox"].input-validation-error {
     background-color: grey;
 }
     
+.content-items {
+    text-align: center;
+}
+
 /* Set gray background color and 100% height */
 .sidenav {
-    padding-top: 20px;
+    padding-top: 30px;
     background-color: #f1f1f1;
     height: 100%;
     /*padding-left: 1%;
