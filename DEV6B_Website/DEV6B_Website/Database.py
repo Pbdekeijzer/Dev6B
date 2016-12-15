@@ -1,16 +1,9 @@
 import sqlite3
 import sys
 
-def open_conn():    
-    try:
-        conn = sqlite3.connect('db.sqlite3')
-        print("connected")
-    except:
-        print("tried")
-
-def close_conn():
+def Execute_Query(query):
+    conn = sqlite3.connect('db.sqlite3')
+    c = conn.cursor()
+    c.execute(query)
+    conn.commit()
     conn.close()
-    print('closed connection')
-
-def create_user():
-    print("Creating new user")
