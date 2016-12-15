@@ -18,15 +18,15 @@ class ViewTest(TestCase):
             super(ViewTest, cls).setUpClass()
             django.setup()
 
-    #def test_home(self):
-    #    """Tests the home page."""
-    #    response = self.client.get('/')
-    #    self.assertContains(response, 'Home Page', 1, 200)
+    def test_home(self):
+        """Tests the home page."""
+        response = self.client.get('/')
+        self.assertContains(response, 'Home Page', 1, 200)
 
-    #def test_contact(self):
-    #    """Tests the contact page."""
-    #    response = self.client.get('/contact')
-    #    self.assertContains(response, 'Contact', 3, 200)
+    def test_contact(self):
+        """Tests the contact page."""
+        response = self.client.get('/contact')
+        self.assertContains(response, 'Contact', 3, 200)
 
     def test_about(self):                               #this should be removed for a succes
         """Tests the about page."""
