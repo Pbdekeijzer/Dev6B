@@ -32,6 +32,9 @@ def contact(request):
         }
     )
 
+def users(request):
+    return HTTPResponse("EMPTY")
+
 def about(request):
     """Renders the about page."""
     assert isinstance(request, HttpRequest)
@@ -39,7 +42,7 @@ def about(request):
         request,
         'app/about.html',
         {
-            'title':'About',
+            'title':'Game',
             'message':'Your application description page.',
             'year':datetime.now().year,
         }

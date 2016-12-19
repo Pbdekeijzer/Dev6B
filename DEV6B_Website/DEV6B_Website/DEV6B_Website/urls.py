@@ -3,7 +3,7 @@ Definition of urls for DEV6B_Website.
 """
 
 from datetime import datetime
-from django.conf.urls import url
+from django.conf.urls import url, include
 import django.contrib.auth.views
 
 import app.forms
@@ -38,6 +38,7 @@ urlpatterns = [
         },
         name='logout'),
 
+    url(r'^api-auth/', include('rest_framework.urls', namespace='rest_framework')),
     # Uncomment the admin/doc line below to enable admin documentation:
     # url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
 
