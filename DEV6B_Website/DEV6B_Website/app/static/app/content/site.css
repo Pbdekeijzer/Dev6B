@@ -69,7 +69,7 @@ input[type="checkbox"].input-validation-error {
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
     height: 800px;
-    background-color: grey;
+    /*background-color: grey;*/
 }
     
 .content-items {
@@ -81,7 +81,7 @@ input[type="checkbox"].input-validation-error {
 }
 
 .panel-body {
-    background-color: lightblue;
+    /*background-color: lightblue;*/
 }
 
 /* Set gray background color and 100% height */
@@ -89,11 +89,7 @@ input[type="checkbox"].input-validation-error {
     padding-top: 30px;
     background-color: #f1f1f1;
     height: 100%;
-    background-color: lightblue;
-}
-
-.body-content {
-    background-color: green;
+    /*background-color: lightblue;*/
 }
     
 /* On small screens, set height to 'auto' for sidenav and grid */
@@ -108,6 +104,6 @@ input[type="checkbox"].input-validation-error {
 }
 
 .LeftAndRightBar {
-    margin-top: 20px;
+    /*margin-top: 20px;*/
     /*max-height: 75%;*/
 }
