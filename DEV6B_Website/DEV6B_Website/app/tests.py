@@ -6,6 +6,7 @@ when you run "manage.py test".
 import django
 from django.test import TestCase
 
+
 # TODO: Configure your database in settings.py and sync before running tests.
 
 class ViewTest(TestCase):
@@ -18,19 +19,21 @@ class ViewTest(TestCase):
             super(ViewTest, cls).setUpClass()
             django.setup()
 
-    def test_home(self):
-        """Tests the home page."""
-        response = self.client.get('/')
-        self.assertContains(response, 'Home Page', 1, 200)
+    def test_truetest(self):
+        test = True
+        self.assertTrue(test)
 
-    def test_contact(self):
-        """Tests the contact page."""
-        response = self.client.get('/contact')
-        self.assertContains(response, 'Contact', 3, 200)
+    def test_falsetest(self):
+        test = False
+        self.assertFalse(test)
+    
+    def test_lasttest(self):
+        test1 = 5
+        test2 = 5
+        self.assertEqual(test1, test2)
+    
+    def test_somemoretests(self):
+        hoi = "lol"
+        self.assertEqual(hoi, "lol")
 
-    #def test_about(self):
-    #    """Tests the about page."""
-    #    response = self.client.get('/about')
-    #    self.assertContains(response, 'About', 3, 200)
-
-#this is a test ???!
+    
