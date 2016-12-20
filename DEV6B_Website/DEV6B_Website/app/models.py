@@ -11,10 +11,10 @@ class DataBaseUser(models.Model):
     def __str__(self):
         return self.username
 
-class GameUser(models.Model):
+class Users(models.Model):
     username = models.OneToOneField(DataBaseUser, primary_key=True)
     cash = models.PositiveIntegerField()
-    experience = models.PositiveIntegerField()
+    experience = models.PositiveIntegerField(default=0  )
 
     def __str__(self):
         return self.username
@@ -29,7 +29,7 @@ class Jobs(models.Model):
 
 class DoneJobs(models.Model):
     jobname = models.ForeignKey(Jobs)
-    username = models.ForeignKey(GameUser)
+    username = models.ForeignKey(Users)
 
     def __str__(self):
         return self.jobname, self.username

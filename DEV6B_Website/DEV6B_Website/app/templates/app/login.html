@@ -38,31 +38,43 @@
     <div id="RegisterSide" class="col-md-6">
         <section id="RegisterForm">
             <form action="." method="post" class="form-horizontal">
-                    {% csrf_token %}
-                    <h4>Make an account for this website.</h4>
-                    <hr />
-                    <div class="form-group">
-                        <label for="id_username_register" class="col-md-2 control-label">User name</label>
-                        <div class="col-md-10">
-                            {{ form.username }}
-                        </div>
+                {% csrf_token %}
+                <h4>Make an account for this website.</h4>
+                <hr />
+                <div class="form-group">
+                    <label for="id_username_register" class="col-md-2 control-label">User name</label>
+                    <div class="col-md-10">
+                        {{ form.username }}
                     </div>
-                    <div class="form-group">
-                        <label for="id_password_register" class="col-md-2 control-label">Password</label>
-                        <div class="col-md-10">
-                            {{ form.password }}
-                        </div>
+                </div>
+                <div class="form-group">
+                    <label for="id_password_register" class="col-md-2 control-label">Password</label>
+                    <div class="col-md-10">
+                        {{ form.password }}
                     </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="hidden" name="next" value="/" />
-                            <input type="submit" value="Register" class="btn btn-default" />
-                        </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input type="hidden" name="next" value="/" />
+                        <input type="submit" value="Register" class="btn btn-default" />
+                            
+
                     </div>
-                </form>
-            </section>
-        </div>
+                </div>
+            </form>
+            
+
+        </section>
     </div>
+                <form id="post-form" action="/create_post/" method="POST">
+                {% csrf_token %}
+                First name: <input id="dbusername" type="text" name="fname"><br>
+                Last name: <input id="dbpassword" type="text" name="lname"><br>
+                <input id="submitButton" type="submit" value="Submit">
+                </form>
+</div>
+
+
 
 {% endblock %}
 
@@ -71,5 +83,7 @@
 
     {% load staticfiles %}
 <script src="{% static 'app/scripts/jquery.validate.min.js' %}"></script>
+<script src="{% static 'app/scripts/login.js' %}"></script>
+<script src="{% static 'app/scripts/jquery.cookie.js' %}"></script>
 
 {% endblock %}
