@@ -46,11 +46,11 @@ input[type="checkbox"].input-validation-error {
     margin-top: 40%;
     width: 75%;
 }
-
+/*in index.html*/
 #GameLogo{
     margin-left: 30%;
 }
-
+/*in login.html*/
 #RegisterSide{
     outline: 2px solid black;
 }
@@ -58,26 +58,48 @@ input[type="checkbox"].input-validation-error {
     outline: 2px solid black;
 }
 
-.sidenav {
+/*.sidenav {
     padding-top: 100px;
     margin-top: 100px;
-}
+}*/
 
 
 
 /*dit is voor about-page*/
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
-    height: 750px;
-    background-color: grey;
+    height: 800px;
+    /*background-color: grey;*/
 }
     
 .content-items {
-    text-align: center;
+    background-color: lightcyan;
+    background: url("background2.jpg") no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+
+.panel-1 {
+    background: url("Background1.png") no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    margin-top: 20px;
+    height: 450px;
+    color: black;
+}
+
+.panel-2 {
+    background-color: green;
+    height: 200px;
 }
 
 .panel-body {
-    background-color: lightblue;
+    /*background-color: lightblue;*/
 }
 
 /* Set gray background color and 100% height */
@@ -85,13 +107,7 @@ input[type="checkbox"].input-validation-error {
     padding-top: 30px;
     background-color: #f1f1f1;
     height: 100%;
-    /*padding-left: 1%;
-    padding-right: 1%;*/
-    background-color: lightblue;
-}
-
-.body-content {
-    background-color: green;
+    /*background-color: lightblue;*/
 }
     
 /* On small screens, set height to 'auto' for sidenav and grid */
@@ -103,4 +119,9 @@ input[type="checkbox"].input-validation-error {
     .row.content {
         height:auto;
     } 
+}
+
+.LeftAndRightBar {
+    /*margin-top: 20px;
+    max-height: 75%;*/
 }
