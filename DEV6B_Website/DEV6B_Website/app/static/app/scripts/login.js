@@ -16,17 +16,17 @@
     function create_post() {
         console.log("create post is working!") // sanity check
 
-        var meme = { the_post: document.getElementById("dbusername").value };
+        var dbuser = { username: document.getElementById("dbusername").value, password: document.getElementById("dbpassword").value };
 
         $.ajax({
             url: "register/", // the endpoint
             type: "POST", // http method
-            data: meme, // data sent with the post request
+            data: dbuser, // data sent with the post request
 
             // handle a successful response
             success: function (json) {
                 $('#post-text').val(''); // remove the value from the input
-                console.log(meme); // log the returned json to the console
+                console.log(dbuser); // log the returned json to the console
                 console.log("success"); // another sanity check
             },
 

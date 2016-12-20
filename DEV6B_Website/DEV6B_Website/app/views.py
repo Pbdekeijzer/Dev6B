@@ -44,11 +44,11 @@ def register(request):
 
     print("LOL")
     if request.method == 'POST':
-        post_text = request.POST.get('the_post')
+        dbusername = request.POST.get('username')
+        dbpassword = request.POST.get('password')
         response_data = {}
 
-        print(post_text)
-        post = DataBaseUser(username=post_text, password="test")
+        post = DataBaseUser(username=dbusername, password=dbpassword)
         post.save()
 
         response_data['result'] = 'Create post successful!'
