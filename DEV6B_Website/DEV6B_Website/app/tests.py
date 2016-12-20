@@ -29,7 +29,7 @@ class ViewTest(TestCase):
     
     def test_lasttest(self):
         test1 = 5
-        test2 = 5        
+        test2 = 5
         self.assertEqual(test1, test2)
     
     def test_somemoretests(self):
