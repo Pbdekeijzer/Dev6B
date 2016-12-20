@@ -4,7 +4,7 @@ when you run "manage.py test".
 """
 
 import django
-from django.test import TestCase
+from django.test import TestCase, Client
 
 
 # TODO: Configure your database in settings.py and sync before running tests.
@@ -19,21 +19,13 @@ class ViewTest(TestCase):
             super(ViewTest, cls).setUpClass()
             django.setup()
 
-    def test_truetest(self):
-        test = True
-        self.assertTrue(test)
+        
+    def test_client(self):
+        client = Client()
+        response = client.get('/')
+        self.assertEqual(response.status_code, 200)
 
-    def test_falsetest(self):
-        test = False
-        self.assertFalse(test)
-    
-    def test_lasttest(self):
-        test1 = 5
-        test2 = 5
-        self.assertEqual(test1, test2)
-    
-    def test_somemoretests(self):
-        hoi = "lol"
-        self.assertEqual(hoi, "lol")
 
     
+
+
