@@ -142,12 +142,14 @@ bld/
 # Visual Studio 2015 cache/options directory
 .vs/
 DEV6B_Website/DEV6B_Website/DEV6B_Website/__pycache__/
+DEV6B_Website/DEV6B_Website/__pycache__/
 DEV6B_Website/DEV6B_Website/bin/
 DEV6B_Website/DEV6B_Website/app/__pycache__/
 DEV6B_Website/DEV6B_Website/app/migrations/__pycache__/
 DEV6B_Website/DEV6B_Website/obj/Debug/
 DEV6B_Website/DEV6B_Website/web.config
 DEV6B_Website/DEV6B_Website/web.config.config
+DEV6B_Website/DEV6B_Website/web.debug.config
 
 *.pyc 
 
