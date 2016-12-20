@@ -22,7 +22,7 @@ urlpatterns = [
     url(r'^about', app.views.about, name='about'),
     url(r'^register', app.views.register, name='register'),
     url(r'^login/register', app.views.register, name='register'),
-    url(r'^login',
+    url(r'^login', 
         django.contrib.auth.views.login,
         {
             'template_name': 'app/login.html',
