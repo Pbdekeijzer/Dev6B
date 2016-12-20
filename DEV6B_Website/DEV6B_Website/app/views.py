@@ -41,8 +41,6 @@ def contact(request):
     )
 
 def register(request):
-
-    print("LOL")
     if request.method == 'POST':
         dbusername = request.POST.get('username')
         dbpassword = request.POST.get('password')

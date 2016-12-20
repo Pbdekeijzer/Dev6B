@@ -71,6 +71,8 @@
     //    console.log("form submitted!")  // sanity check
     //    create_post();
     //});
+
+    //No idea what this does, something to do with making token
     $.ajaxSetup({ 
         beforeSend: function(xhr, settings) {
             function getCookie(name) {
