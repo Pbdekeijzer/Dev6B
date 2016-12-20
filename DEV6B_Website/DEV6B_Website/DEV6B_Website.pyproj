@@ -29,8 +29,17 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="app\admin.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\forms.py" />
     <Compile Include="app\models.py" />
+    <Compile Include="app\serializers.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="app\testingcode.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="app\tests.py" />
     <Compile Include="app\views.py" />
     <Compile Include="app\__init__.py" />
@@ -52,12 +61,19 @@
     <Folder Include="app\static\app\content\" />
     <Folder Include="app\static\app\fonts\" />
     <Folder Include="app\static\app\scripts\" />
+    <Folder Include="app\static\app\scripts\OurJavascripts\" />
     <Folder Include="app\templates\" />
     <Folder Include="app\templates\app\" />
     <Folder Include="DEV6B_Website\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\static\app\content\Background1.jpg" />
+    <Content Include="app\static\app\content\Background1.png" />
+    <Content Include="app\static\app\content\background2.jpg" />
+    <Content Include="app\static\app\content\background3.jpg" />
     <Content Include="app\static\app\content\fear_m10.jpg" />
+    <Content Include="app\static\app\scripts\jquery.cookie.js" />
+    <Content Include="app\static\app\scripts\OurJavascripts\login.js" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />

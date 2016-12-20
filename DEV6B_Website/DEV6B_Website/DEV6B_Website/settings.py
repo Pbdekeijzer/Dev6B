@@ -27,7 +27,8 @@ SECRET_KEY = '7f3b08ac-506c-418a-b632-137966a708ea'
 DEBUG = True
 
 
-ALLOWED_HOSTS = ['145.24.222.172', 'localhost']
+ALLOWED_HOSTS = ['145.24.222.172', 'localhost', '127.0.0.1']
+
 
 
 
@@ -42,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework',
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -126,3 +128,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 STATIC_ROOT = posixpath.join(*(BASE_DIR.split(os.path.sep) + ['static']))
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+    ]
+}
