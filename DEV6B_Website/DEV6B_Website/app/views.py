@@ -11,6 +11,7 @@ from .models import DataBaseUser, Users
 import json 
 from django.views.decorators.csrf import csrf_exempt
 from .forms import *
+from django.contrib.auth import authenticate, login
 
 def home(request):
     """Renders the home page."""
@@ -65,8 +66,34 @@ def register(request):
             content_type="application/json"
         )
 
+def my_view(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        login(request, user)
+        """Renders the contact page."""
+        assert isinstance(request, HttpRequest)
+        return render(
+            request,
+            'app/contact.html',
+            {
+                'title':'Contact',
+                'message':'Your contact page.',
+                'year':datetime.now().year,
+            }
+        )
+        # Redirect to a success page.
+        ...
+    else:
+        # Return an 'invalid login' error message.
+        ...
 
+def logout_view(request):
+    logout(request)
 
+def login_view(request):
+    login(request)
 
 
 

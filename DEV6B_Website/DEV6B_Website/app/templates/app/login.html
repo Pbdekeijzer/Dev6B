@@ -3,11 +3,12 @@
 {% block content %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="../../static/app/scripts/OurJavascripts/login.js"></script>
+<script src="../../static/app/scripts/OurJavascripts/LoginModule.js"></script>
 <h2>{{ title }}</h2>
 <div class="row">
     <div id="LoginSide" class="col-md-6">
         <section id="loginForm">
-            <form action="." method="post" class="form-horizontal">
+            <form action="." method="POST" class="form-horizontal" id="post-form" action="/login_post/">
                 {% csrf_token %}
                 <h4>Use an account to log in.</h4>
                 <hr />
