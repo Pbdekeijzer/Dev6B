@@ -67,8 +67,13 @@
     <Folder Include="DEV6B_Website\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\static\app\content\Background1.jpg" />
+    <Content Include="app\static\app\content\Background1.png" />
+    <Content Include="app\static\app\content\background2.jpg" />
+    <Content Include="app\static\app\content\background3.jpg" />
     <Content Include="app\static\app\content\fear_m10.jpg" />
-    <Content Include="app\static\app\scripts\OurJavascripts\JSLoginAndRegister.js" />
+    <Content Include="app\static\app\scripts\jquery.cookie.js" />
+    <Content Include="app\static\app\scripts\OurJavascripts\login.js" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />
