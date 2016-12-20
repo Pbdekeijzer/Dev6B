@@ -35,6 +35,9 @@
     <Compile Include="app\views.py" />
     <Compile Include="app\__init__.py" />
     <Compile Include="app\migrations\__init__.py" />
+    <Compile Include="Database.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="manage.py" />
     <Compile Include="DEV6B_Website\__init__.py" />
     <Compile Include="DEV6B_Website\settings.py" />
