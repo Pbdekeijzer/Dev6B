@@ -7,7 +7,7 @@ from django.http import HttpRequest
 from django.http import HttpResponse
 from django.template import RequestContext
 from datetime import datetime
-from .models import DataBaseUser
+from .models import DataBaseUser, Users
 import json 
 from django.views.decorators.csrf import csrf_exempt
 from .forms import *
@@ -48,8 +48,12 @@ def register(request):
         dbpassword = request.POST.get('password')
         response_data = {}
 
-        post = DataBaseUser(username=dbusername, password=dbpassword)
-        post.save()
+        dbuser = DataBaseUser(username=dbusername, password=dbpassword)
+        dbuser.save()
+
+        user = Users(username=dbuser, cash=0, experience=0)
+        user.save()
+
 
         response_data['result'] = 'Create post successful!'
 
