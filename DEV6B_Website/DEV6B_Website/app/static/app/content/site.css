@@ -72,7 +72,13 @@ input[type="checkbox"].input-validation-error {
     margin-top: 100px;
 }*/
 
-
+.page-background {
+    background: url("background2.png") no-repeat center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
 
 /*dit is voor about-page*/
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
@@ -88,14 +94,9 @@ input[type="checkbox"].input-validation-error {
 }
 
 .content-items {
-    background-color: lightcyan;
-    background: url("background2.jpg") no-repeat center;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+    /*background-color: lightcyan;
+    background*/
 }
-
 
 .panel-1 {
     background: url("Background1.png") no-repeat center ;
