@@ -22,6 +22,7 @@ urlpatterns = [
     url(r'^about', app.views.about, name='about'),
     url(r'^register', app.views.register, name='register'),
     url(r'^jobs', app.views.jobs, name='jobs'),
+    url(r'^users', app.views.users, name='users'),
     url(r'^login/register', app.views.register, name='register'),
     url(r'^login', 
         django.contrib.auth.views.login,

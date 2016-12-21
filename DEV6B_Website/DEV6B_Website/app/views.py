@@ -3,15 +3,13 @@ Definition of views.
 """
 
 from django.shortcuts import render
-from django.http import HttpRequest
-from django.http import HttpResponse
+from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.template import RequestContext
 from datetime import datetime
 from .models import DataBaseUser, Users, Jobs
 import json 
 from django.views.decorators.csrf import csrf_exempt
 from .forms import *
-from django.http import JsonResponse
 from django.utils.datastructures import MultiValueDictKeyError
 
 def home(request):
@@ -25,6 +23,24 @@ def home(request):
             'year':datetime.now().year,
         }
     )
+
+def users(request):
+    if request.method == 'GET':
+
+        #different syntax for SELECT * FROM Users
+        users = Users.objects.all()
+
+        return_dict = {}
+
+        index = 0
+
+        #add all users to a dictionary, which gets returned at the end
+        for i in users:
+            return_dict[index] = {"username" : i.username.username, "cash" : i.cash, "experience" : i.experience}
+            index = index + 1
+
+        return JsonResponse(return_dict)
+    return [], 400
 
 def jobs(request):
     if request.method == 'GET':
@@ -61,6 +77,9 @@ def jobs(request):
                 return_dict[index] = {"jobname": i.jobname, "description": i.description, "expreward": i.expreward, "level_requirement": i.level_requirement }
                 index = index + 1
 
+        #does nothing
+        #return_dict = json.dumps(list(jobs))
+            
         return JsonResponse(return_dict)
     return [], 400
 
@@ -130,9 +149,6 @@ def register(request):
     #        json.dumps({"nothing to see": "this isn't happening"}),
     #        content_type="application/json"
     #    )
-
-def users(request):
-    return HTTPResponse("EMPTY")
 
 def about(request):
     """Renders the about page."""

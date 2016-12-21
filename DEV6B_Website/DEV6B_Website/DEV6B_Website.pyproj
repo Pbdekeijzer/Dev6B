@@ -75,6 +75,7 @@
     <Content Include="app\static\app\scripts\jquery.cookie.js" />
     <Content Include="app\static\app\scripts\OurJavascripts\jobs.js" />
     <Content Include="app\static\app\scripts\OurJavascripts\login.js" />
+    <Content Include="app\static\app\scripts\OurJavascripts\users.js" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />
     <Content Include="app\static\app\content\bootstrap.css" />
