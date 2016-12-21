@@ -73,6 +73,7 @@
     <Content Include="app\static\app\content\background3.jpg" />
     <Content Include="app\static\app\content\fear_m10.jpg" />
     <Content Include="app\static\app\scripts\jquery.cookie.js" />
+    <Content Include="app\static\app\scripts\OurJavascripts\jobs.js" />
     <Content Include="app\static\app\scripts\OurJavascripts\login.js" />
     <Content Include="requirements.txt" />
     <Content Include="db.sqlite3" />

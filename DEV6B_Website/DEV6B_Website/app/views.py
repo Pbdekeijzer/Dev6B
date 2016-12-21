@@ -7,10 +7,12 @@ from django.http import HttpRequest
 from django.http import HttpResponse
 from django.template import RequestContext
 from datetime import datetime
-from .models import DataBaseUser, Users
+from .models import DataBaseUser, Users, Jobs
 import json 
 from django.views.decorators.csrf import csrf_exempt
 from .forms import *
+from django.http import JsonResponse
+from django.utils.datastructures import MultiValueDictKeyError
 
 def home(request):
     """Renders the home page."""
@@ -23,6 +25,44 @@ def home(request):
             'year':datetime.now().year,
         }
     )
+
+def jobs(request):
+    if request.method == 'GET':
+        #default user_level
+        user_level = 1
+
+        #returns a dictionary with the values from the SELECT * FROM JOBS query
+        jobs = Jobs.objects.all()
+        
+        #The ajax get request sends a dictionary with a username to the backend. The view tries to find the username in the database, else user = None
+        dbusername = request.GET.get('username', '')
+        try:
+            user = Users.objects.get(username=dbusername)
+            #enable when actual experience is fixed
+            ######user_level = user.experience / 100
+        except Users.DoesNotExist:
+            user = None
+        
+        #test
+        print(user)
+
+        return_dict = {}
+
+        #to create new keys in the dictionary we need to iterate through a number (index becomes the key for every new entry)
+        index = 0
+
+        for i in jobs:
+            if i.level_requirement <= user_level:  
+                
+                #return_dict.setdefault(index, []).append(i.jobname)
+                #return_dict.setdefault(index, []).append(i.description)
+                #return_dict.setdefault(index, []).append(i.expreward)
+                #return_dict.setdefault(index, []).append(i.level_requirement)
+                return_dict[index] = {"jobname": i.jobname, "description": i.description, "expreward": i.expreward, "level_requirement": i.level_requirement }
+                index = index + 1
+
+        return JsonResponse(return_dict)
+    return [], 400
 
 def test(request):
     return "lol"
@@ -51,7 +91,6 @@ def register(request):
 
         user = Users(username=dbuser, cash=0, experience=0)
         user.save()
-
 
         response_data['result'] = 'Create post successful!'
 
