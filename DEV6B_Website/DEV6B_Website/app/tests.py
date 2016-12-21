@@ -23,7 +23,8 @@ class ViewTest(TestCase):
     def test_client(self):
         client = Client()
         response = client.get('/')
-        self.assertEqual(response.status_code, 200)
+        #self.assertEqual(response.status_code, 200)
+        self.assertTemplateUsed(response, "app/index.html")
 
 
     
