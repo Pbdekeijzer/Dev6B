@@ -1,8 +1,3 @@
-"""
-This file demonstrates writing tests using the unittest module. These will pass
-when you run "manage.py test".
-"""
-
 import django
 from django.test import TestCase, Client
 
@@ -50,6 +45,3 @@ class ResponseTest(TestCase):
         client = Client()
         response = client.get('/login')
         self.assertEqual(response.status_code, 200)
-    
-
-
