@@ -24,9 +24,6 @@ def home(request):
         }
     )
 
-def test(request):
-    return "lol"
-
 def contact(request):
     """Renders the contact page."""
     assert isinstance(request, HttpRequest)
