@@ -17,7 +17,13 @@
 
         $('#MiddleBoxDown').empty();
         //Now it only give the number of the job you selected, but must become the title of the crime #NeedDatabaseFirst
-        $('#MiddleBoxDown').append("<h3>Selected job "+JobNumber+"</h3><p>Zoveel kans</p><p>Zoveel kans</p><p>Zoveel kans</p>");
+        $('#MiddleBoxDown').append("<h3>Selected job "+JobNumber+"</h3> <form action=''> " +
+            "<input type='radio' name='Crime' value='CrimeOne'> CrimeOne<br> " +
+            "<input type='radio' name='Crime' value='CrimeTwo'> CrimeTwo<br> " +
+            "<input type='radio' name='Crime' value='CrimeThree'> CrimeThree " +
+            "</form>");
+
+
 
 
         //if (id == "m1") {
