@@ -1,5 +1,7 @@
 ﻿$(document).ready(function() {
 
+    var JobNumber;
+    var CrimeSelected;
 
     for (var index = 1; index < 20; index++) {
 
@@ -11,7 +13,7 @@
 
     $('.well').click(function () {
         //Get jobnumber selected
-        var JobNumber = $(this).text();
+        JobNumber = $(this).text();
         JobNumber = JobNumber.split(" ");
         JobNumber = JobNumber[JobNumber.length - 1];
 
@@ -21,19 +23,18 @@
             "<input type='radio' name='Crime' value='CrimeOne'> CrimeOne<br> " +
             "<input type='radio' name='Crime' value='CrimeTwo'> CrimeTwo<br> " +
             "<input type='radio' name='Crime' value='CrimeThree'> CrimeThree " +
-            "</form>");
+            "</form><br> <a href='#' id='CommitCrime' class='btn btn-primary btn-large'>Commit crime</a>");
 
-
-
-
-        //if (id == "m1") {
-        //    do your stuff here
-        //}
 
 
     });
 
 
+    $('#MiddleBoxDown').on('click', 'CommitCrime', function () {
+        CrimeSelected = $('input[name=Crime]:checked').val();
+
+
+    });
 
 
 });
