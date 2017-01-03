@@ -13,6 +13,26 @@
         create_post();
     });
    
+    $('#get-form').on('submit', function (event) {
+        event.preventDefault()
+        console.log("get form");
+        login_get();
+    })
+
+    function login_get() {
+        console.log("login in...")
+        var dbuser = { username: document.getElementById("dbusername").value, password: document.getElementById("dbpassword").value };
+        $.ajax({
+            url: "login/",
+            type: "GET",
+            data: dbuser,
+            success: function (json) {
+                $('#post-text').val('');
+                console.log(dbuser);
+            },
+        })
+    }
+
     function create_post() {
         console.log("create post is working!") // sanity check
 
