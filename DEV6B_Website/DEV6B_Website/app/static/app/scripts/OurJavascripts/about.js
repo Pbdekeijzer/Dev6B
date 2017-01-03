@@ -7,17 +7,22 @@
 
         
     }
-
-
-
-
+    
 
     $('.well').click(function () {
-        var id = $(this).attr('id');
-        if (id == "m1") {
-            //do your stuff here
-        }
+        //Get jobnumber selected
+        var JobNumber = $(this).text();
+        JobNumber = JobNumber.split(" ");
+        JobNumber = JobNumber[JobNumber.length - 1];
 
+        $('#MiddleBoxDown').empty();
+        //Now it only give the number of the job you selected, but must become the title of the crime #NeedDatabaseFirst
+        $('#MiddleBoxDown').append("<h3>Selected job "+JobNumber+"</h3><p>Zoveel kans</p><p>Zoveel kans</p><p>Zoveel kans</p>");
+
+
+        //if (id == "m1") {
+        //    do your stuff here
+        //}
 
 
     });
