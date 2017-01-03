@@ -19,18 +19,10 @@
         login_get();
     })
 
-    function login_get() {
+    function login_post() {
         console.log("login in...")
-        var dbuser = { username: document.getElementById("dbusername").value, password: document.getElementById("dbpassword").value };
-        $.ajax({
-            url: "login/",
-            type: "GET",
-            data: dbuser,
-            success: function (json) {
-                $('#post-text').val('');
-                console.log(dbuser);
-            },
-        })
+        var dbuser = { username: document.getElementById("id_username").value, password: document.getElementById("id_password").value };
+        console.log(document.getElementById("id_username"))
     }
 
     function create_post() {
