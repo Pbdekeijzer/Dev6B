@@ -99,6 +99,22 @@ def contact(request):
         }
     )
 
+def tester(request):
+    if request.method == 'POST':
+        loginusername = request.POST.get('username')
+        loginpassword = request.POST.get('password')
+
+        response_data = {}
+
+        if DataBaseUser.objects.filter(username=loginusername).filter(password=loginpassword):
+            response_data['result'] = 'Pass'
+        else:
+            response_data['result'] = 'Fail'
+
+        return HttpResponse(json.dumps(response_data),
+                            content_type="application/json")
+    return [], 400
+
 def register(request):
     if request.method == 'POST':
         dbusername = request.POST.get('username')
