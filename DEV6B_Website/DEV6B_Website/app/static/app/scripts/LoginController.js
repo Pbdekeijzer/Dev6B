@@ -5,7 +5,3 @@
         onComplete(json, entry);
     });
 }
-
-function login_post() {
-    console.log("hello")
-}
