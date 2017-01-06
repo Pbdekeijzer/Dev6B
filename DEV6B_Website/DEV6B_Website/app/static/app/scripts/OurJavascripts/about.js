@@ -7,9 +7,8 @@
 
     for (var index = 1; index <= 20; index++) {
 
-        $("#AllJobs").append("<div class='well'><p>Job"+index+"</p><p><a href='#' class='btn btn-primary btn-large'>Select Job "+index+"</a></p></div>");
-
-        
+        $("#AllJobs").append("<div class='well'><p>Job " + index + "</p><p><a href='#' class='btn btn-primary btn-large'>Select Job " + index + "</a></p></div>");
+        //One of the indexes can of course be changed into the title of te job kind. Like steal a car, ferrari
     }
     
 
@@ -27,7 +26,7 @@
             "<input type='radio' name='Crime' value='CrimeThree'> CrimeThree " +
             "</form><br> <a href='#' id='CommitCrime' class='btn btn-primary btn-large'>Commit crime</a>" +
             "<div id='NotSelectedAlert'> You first must select which crime you want to commit </div>");
-        $('#MiddleBoxDown').css('padding-bottom', '40px')
+        $('#MiddleBoxDown').css('padding-bottom', '40px');
         $('#NotSelectedAlert').hide();
 
 
