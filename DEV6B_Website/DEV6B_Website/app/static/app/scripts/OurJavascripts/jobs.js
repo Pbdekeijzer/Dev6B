@@ -1,7 +1,7 @@
 ﻿$(document)
     .ready(function () {
 
-        testList = [];
+        var testList = [];
 
         //sends GET request to view.py and returns json
         $.ajax({
@@ -21,7 +21,7 @@
             
             testList.forEach(function (element) {
                 console.log(element);
-
+            console.log("These were all the jobs");
             });
         });
 

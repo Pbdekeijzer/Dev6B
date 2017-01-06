@@ -1,8 +1,8 @@
 ﻿$(document).ready(function() {
 
-    JobNumber = null;
-    CrimeSelected = null;
-
+    var JobNumber;
+    var CrimeSelected;
+    var JobTitle;
     testList = [];
 
     //sends GET request to view.py and returns json
@@ -14,39 +14,31 @@
         json = JSON.stringify(json);
         $.each(JSON.parse(json), function (idx, obj) {
             testList.push(obj.expreward);
-            console.log("All jobs below");
+            
         });
 
-
-
-        //Just for testing
-
+        var index = 0;
         testList.forEach(function (element) {
-            console.log(element);
+            index = + 1;
+            $("#AllJobs").append("<div class='well'><p>Job " + element + "</p><p><a id='TheJobButton' href='#' class='btn btn-primary btn-large'>Select Job "+index+"</a></p></div>");
 
         });
     });
 
+    //for (var index = 1; index <= 18; index++) {
 
-
-
-
-
-
-
-
-
-
-    for (var index = 1; index <= 18; index++) {
-
-        $("#AllJobs").append("<div class='well'><p>Job " + index + "</p><p><a href='#' class='btn btn-primary btn-large'>Select Job " + index + "</a></p></div>");
-        //One of the indexes can of course be changed into the title of te job kind. Like steal a car, ferrari
-    }
+    //    $("#AllJobs").append("<div class='well'><p>Job " + index + "</p><p><a href='#' class='btn btn-primary btn-large'>Select Job </a></p></div>");
+    //    //One of the indexes can of course be changed into the title of te job kind. Like steal a car, ferrari
+    //}
     
 
-    $('.well').click(function () {
+    $('#AllJobs').on('click', '.well', function () {
+
+        JobTitle = $(this).text();
+        JobTitle = JobTitle.split("Select");
+        JobTitle = JobTitle[0];
         //Get jobnumber selected
-        JobNumber = $(this).text();
+        JobNumber = $(this).find('#TheJobButton').text();
         JobNumber = JobNumber.split(" ");
         JobNumber = JobNumber[JobNumber.length - 1];
 
@@ -73,7 +65,7 @@
         } else {
             $('#MiddleBoxAbove').empty();
             $('#MiddleBoxAbove').append("<h1>Meme Wars</h1> <p> <h3>Current game information</h3> " +
-                "</p> <p><h4> Job "+ JobNumber.toString() +", "+ CrimeSelected.toString() +" was succesfully finished, Good job!</h4> </p> <p><h4>You gained 200xp</h4> </p> " +
+                "</p> <p><h4>"+ JobTitle +", "+ CrimeSelected.toString() +" was succesfully finished, Good job!</h4> </p> <p><h4>You gained 200xp</h4> </p> " +
                 "<!--<img src='../../static/app/content/fear_m10.jpg' alt='meme.jpg'/>--> "); //Dont know what this comment was for in the html, decided to just copy paste it
 
         }
