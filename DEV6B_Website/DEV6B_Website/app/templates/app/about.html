@@ -40,13 +40,13 @@
     <div class="row content">
         <div class="col-sm-2 sidenav LeftAndRightBar">
             <p>
-                <h3>Username</h3>
+                <h3 id="UsernameStatt">Username: <br/></h3>
             </p>
-            <p><a href="#">Level</a>
+            <p><div id="LevelStatt">Level: </div>
             </p>
-            <p><a href="#">Reputation</a>
+            <p><div id="RepStatt">Reputation: </div>
             </p>
-            <p><a href="#">Money</a>
+            <p><div id="MoneyStatt">MoneyStatt: </div>
             </p>
         </div>
         <!-- Middle box with notification if the job failed -->
@@ -55,13 +55,15 @@
                 <div id="MiddleBoxAbove" class="panel-body">
                     <h1>Meme Wars</h1>
                     <p>
-                        <h3>Current game information</h3>
+                    <h3>Current game information</h3>
                     </p>
-                    <p><h4>Job1 was succesfully finished, Good job!</h4>
+                    <p><h4>Wheter your job went well or bad, is notified here. <br/> Begin by selecting a job on the right</h4>
                     </p>
-                    <p><h4>You gained 200xp</h4>
+                    <p><h4>Any granted XP will also be announced here</h4>
                     </p>
                     <!--<img src="../../static/app/content/fear_m10.jpg" alt="meme.jpg"/>-->
+                    <!-- Javascript emptys this div and replaced it when you click on commit crime -->
+                    
                 </div>
             </div>
             <hr>
@@ -69,14 +71,15 @@
                 <div id="MiddleBoxDown" class="panel-body">
 
                     <h3>If you select a job, the possible crimes of that kind will come here. <br />  So lets begin!</h3>
-                    <!-- Javasript insert all the jobs of one kind, depending on which kind is chosen by the user. Those buttons are found within id AllJobs -->
+                    <!-- Javascript insert all the jobs of one kind, depending on which kind is chosen by the user. Those buttons are found within id AllJobs -->
+                   
 
                 </div>
             </div>
         </div>
         <div id="AllJobs" class="col-sm-2 sidenav LeftAndRightBar">
             <h2> Available Jobs </h2>
-            <!-- Javascripts inserts all the jobs from the database here as html -->
+            <!-- Javascripts inserts all kinds of jobs from the database here as html -->
         </div>
     </div>
 </div>

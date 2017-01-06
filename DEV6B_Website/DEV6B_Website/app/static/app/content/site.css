@@ -61,16 +61,6 @@ input[type="checkbox"].input-validation-error {
     height: 616px;
 }
 
-/*
-#MiddleBox {
-    height: 100%
-}*/
-
-
-/*.sidenav {
-    padding-top: 100px;
-    margin-top: 100px;
-}*/
 
 .page-background {
     background: url("background2.png") no-repeat center;
@@ -90,6 +80,7 @@ input[type="checkbox"].input-validation-error {
     
 .panel-body {
     background-color:rgba(255,255,255,0.45);
+    padding-bottom: 140px;
 
 }
 
@@ -132,6 +123,10 @@ input[type="checkbox"].input-validation-error {
 .LeftAndRightBar {
     overflow-y: auto;
     max-height: 100%;
+}
+
+#MiddleBoxDown {
+    padding-top: 0px;
 }
 
     
