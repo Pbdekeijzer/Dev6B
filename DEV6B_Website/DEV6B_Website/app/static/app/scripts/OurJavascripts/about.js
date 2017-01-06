@@ -33,7 +33,7 @@
     
 
     $('#AllJobs').on('click', '.well', function () {
-
+        //Get the title of job selected
         JobTitle = $(this).text();
         JobTitle = JobTitle.split("Select");
         JobTitle = JobTitle[0];
