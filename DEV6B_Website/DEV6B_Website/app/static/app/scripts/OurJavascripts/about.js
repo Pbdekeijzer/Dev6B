@@ -5,7 +5,7 @@
 
 
 
-    for (var index = 1; index <= 20; index++) {
+    for (var index = 1; index <= 18; index++) {
 
         $("#AllJobs").append("<div class='well'><p>Job " + index + "</p><p><a href='#' class='btn btn-primary btn-large'>Select Job " + index + "</a></p></div>");
         //One of the indexes can of course be changed into the title of te job kind. Like steal a car, ferrari
