@@ -12,13 +12,13 @@
             json = JSON.stringify(json);
             $.each(JSON.parse(json), function (idx, obj) {
                 testList.push(obj.expreward);
-                console.log("test");
+                console.log("All jobs below");
             }); 
             
 
 
             //Just for testing
-            console.log("test");
+            
             testList.forEach(function (element) {
                 console.log(element);
 
