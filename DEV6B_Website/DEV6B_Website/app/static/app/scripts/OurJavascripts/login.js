@@ -1,4 +1,5 @@
-﻿$(document).ready(function() {
+﻿$(document).ready(function () {
+    //This is the register document
 
     //$('#submitButton')
     //    .click(function(e) {
@@ -41,7 +42,7 @@
     //}
 
     $("#testButton").click(function () {
-        login();
+       login();
     });
 
     function login() {
@@ -50,7 +51,7 @@
         var dbuser = { username: document.getElementById("loginusername").value, password: document.getElementById("loginpassword").value };
 
         $.ajax({
-            url: "tester/", // the endpoint
+            url: "login/register", // the endpoint
             type: "POST", // http method
             data: dbuser, // data sent with the post request
 
