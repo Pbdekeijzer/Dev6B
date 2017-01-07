@@ -11,7 +11,7 @@
             <br>
                 <form>
                 {% csrf_token %}
-                Name: <input id="loginusername" type="text" name="fname"><br><br>
+                Name    : <input id="loginusername" type="text" name="fname"><br><br>
                 Password: <input id="loginpassword" type="text" name="lname"><br><br>
                 <button id="testButton" type="button" class="button"> Registreer </button><br>
                 </form>
@@ -23,7 +23,7 @@
             <br>
                 <form id="post-form" action="/create_post/" method="POST">
                 {% csrf_token %}
-                Name: <input id="dbusername" type="text" name="fname"><br><br>
+                Name    : <input id="dbusername" type="text" name="fname"><br><br>
                 Password: <input id="dbpassword" type="text" name="lname"><br><br>
                 <input id="submitButton" type="submit" value="Login"><br>
                 </form>
