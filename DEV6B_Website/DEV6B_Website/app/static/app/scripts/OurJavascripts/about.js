@@ -3,6 +3,7 @@
     var JobNumber;
     var CrimeSelected;
     var JobTitle;
+    var JobTasks;
     testList = [];
 
     //sends GET request to view.py and returns json
@@ -13,24 +14,18 @@
     }).done(function (json) {
         json = JSON.stringify(json);
         $.each(JSON.parse(json), function (idx, obj) {
-            testList.push(obj.expreward);
+            testList.push(obj);
             
         });
 
         var index = 0;
         testList.forEach(function (element) {
-            index = + 1;
-            $("#AllJobs").append("<div class='well'><p>Job " + element + "</p><p><a id='TheJobButton' href='#' class='btn btn-primary btn-large'>Select Job "+index+"</a></p></div>");
+            index = index + 1;
+            $("#AllJobs").append("<div class='well'><p>Job " + element.jobname + "</p><p><a id='TheJobButton' href='#' class='btn btn-primary btn-large'>Select Job "+index+"</a></p></div>");
 
         });
     });
 
-    //for (var index = 1; index <= 18; index++) {
-
-    //    $("#AllJobs").append("<div class='well'><p>Job " + index + "</p><p><a href='#' class='btn btn-primary btn-large'>Select Job </a></p></div>");
-    //    //One of the indexes can of course be changed into the title of te job kind. Like steal a car, ferrari
-    //}
-    
 
     $('#AllJobs').on('click', '.well', function () {
         //Get the title of job selected
@@ -42,13 +37,16 @@
         JobNumber = JobNumber.split(" ");
         JobNumber = JobNumber[JobNumber.length - 1];
 
+        JobTasks = testList[JobNumber-1].tasks.split(",");
+
+
         $('#MiddleBoxDown').empty();
         //Now it only give the number of the job you selected, but must become the title of the crime #NeedDatabaseFirst
-        $('#MiddleBoxDown').append("<h3>Selected job "+JobNumber+"</h3> <form action=''> " +
-            "<input type='radio' name='Crime' value='CrimeOne'> CrimeOne<br> " +
-            "<input type='radio' name='Crime' value='CrimeTwo'> CrimeTwo<br> " +
-            "<input type='radio' name='Crime' value='CrimeThree'> CrimeThree " +
-            "</form><br> <a href='#' id='CommitCrime' class='btn btn-primary btn-large'>Commit crime</a>" +
+        $('#MiddleBoxDown').append("<h3>Selected job " + JobNumber + "</h3> <form action=''> ");
+        JobTasks.forEach(function(element) {
+            $('#MiddleBoxDown').append("<input type='radio' name='Crime' value='" + element + "'> " + element + "<br> ");
+        });
+        $('#MiddleBoxDown').append("</form><br> <a href='#' id='CommitCrime' class='btn btn-primary btn-large'>Commit crime</a>" +
             "<div id='NotSelectedAlert'> You first must select which crime you want to commit </div>");
         $('#MiddleBoxDown').css('padding-bottom', '40px');
         $('#NotSelectedAlert').hide();
@@ -63,10 +61,22 @@
             $('#NotSelectedAlert').show();
             $('#NotSelectedAlert').delay(3500).hide(1000);
         } else {
-            $('#MiddleBoxAbove').empty();
-            $('#MiddleBoxAbove').append("<h1>Meme Wars</h1> <p> <h3>Current game information</h3> " +
-                "</p> <p><h4>"+ JobTitle +", "+ CrimeSelected.toString() +" was succesfully finished, Good job!</h4> </p> <p><h4>You gained 200xp</h4> </p> " +
-                "<!--<img src='../../static/app/content/fear_m10.jpg' alt='meme.jpg'/>--> "); //Dont know what this comment was for in the html, decided to just copy paste it
+            if (Math.floor((Math.random() * 2) + 1) == 1) {
+                $('#MiddleBoxAbove').empty();
+                $('#MiddleBoxAbove').append("<h1>Meme Wars</h1> <p> <h3>Current game information</h3> " +
+                    "</p> <p><h4>" +
+                    JobTitle + ", " + CrimeSelected.toString() + " was succesfully finished, Good job!</h4> </p> <p><h4>You gained " + testList[JobNumber].expreward.toString() + "xp</h4> </p> ");
+                    
+
+            } else {
+                $('#MiddleBoxAbove').empty();
+                $('#MiddleBoxAbove').append("<h1>Meme Wars</h1> <p> <h3>Current game information</h3> " +
+                    "</p> <p><h4>" +
+                    JobTitle + ", " + CrimeSelected.toString() + " was failed, Terrible job!</h4> </p> <p><h4>You lost " + testList[JobNumber].expreward + "xp</h4> </p> ");
+
+
+            }
+
 
         }
     });
