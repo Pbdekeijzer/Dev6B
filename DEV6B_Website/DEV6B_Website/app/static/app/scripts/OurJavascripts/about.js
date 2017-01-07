@@ -27,6 +27,9 @@
     });
 
 
+
+
+
     $('#AllJobs').on('click', '.well', function () {
         //Get the title of job selected
         JobTitle = $(this).text();
@@ -41,7 +44,7 @@
 
 
         $('#MiddleBoxDown').empty();
-        //Now it only give the number of the job you selected, but must become the title of the crime #NeedDatabaseFirst
+                                                            //For the job you clicked, show all the tasks
         $('#MiddleBoxDown').append("<h3>Selected job " + JobNumber + "</h3> <form action=''> ");
         JobTasks.forEach(function(element) {
             $('#MiddleBoxDown').append("<input type='radio' name='Crime' value='" + element + "'> " + element + "<br> ");
@@ -57,22 +60,25 @@
 
     $('#MiddleBoxDown').on('click', '#CommitCrime', function () {
         CrimeSelected = $('input[name=Crime]:checked').val();
-        if (CrimeSelected == null) {
+        if (CrimeSelected == null) {                        //if no radio button is selected
             $('#NotSelectedAlert').show();
             $('#NotSelectedAlert').delay(3500).hide(1000);
         } else {
-            if (Math.floor((Math.random() * 2) + 1) == 1) {
+            if (Math.floor((Math.random() * 2) + 1) == 1) { //if chance one out of two is 1, succes
                 $('#MiddleBoxAbove').empty();
                 $('#MiddleBoxAbove').append("<h1>Meme Wars</h1> <p> <h3>Current game information</h3> " +
                     "</p> <p><h4>" +
-                    JobTitle + ", " + CrimeSelected.toString() + " was succesfully finished, Good job!</h4> </p> <p><h4>You gained " + testList[JobNumber].expreward.toString() + "xp</h4> </p> ");
+                    JobTitle + ", " + CrimeSelected.toString() +
+                    " was succesfully finished, Good job!</h4> </p> <p><h4>You gained " +
+                    testList[JobNumber-1].expreward + "xp</h4> </p> ");
                     
 
-            } else {
+            } else {                                        //Otherwise fail message
                 $('#MiddleBoxAbove').empty();
                 $('#MiddleBoxAbove').append("<h1>Meme Wars</h1> <p> <h3>Current game information</h3> " +
                     "</p> <p><h4>" +
-                    JobTitle + ", " + CrimeSelected.toString() + " was failed, Terrible job!</h4> </p> <p><h4>You lost " + testList[JobNumber].expreward + "xp</h4> </p> ");
+                    JobTitle + ", " + CrimeSelected.toString() + " was failed, Terrible job!</h4> </p> <p><h4>You lost " +
+                    testList[JobNumber-1].expreward + "xp</h4> </p> ");
 
 
             }
