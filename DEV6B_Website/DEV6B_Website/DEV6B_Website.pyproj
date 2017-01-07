@@ -81,7 +81,6 @@
     <Content Include="app\static\app\scripts\jquery.cookie.js" />
     <Content Include="app\static\app\scripts\LoginController.js" />
     <Content Include="app\static\app\scripts\OurJavascripts\about.js" />
-    <Content Include="app\static\app\scripts\OurJavascripts\jobs.js" />
     <Content Include="app\static\app\scripts\OurJavascripts\login.js" />
     <Content Include="app\static\app\scripts\OurJavascripts\LoginModule.js" />
     <Content Include="app\static\app\scripts\OurJavascripts\users.js" />

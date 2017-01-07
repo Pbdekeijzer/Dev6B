@@ -25,6 +25,7 @@ class Jobs(models.Model):
     description = models.CharField(max_length=100)
     expreward = models.PositiveIntegerField()
     level_requirement = models.PositiveIntegerField()
+    tasks = models.CharField(max_length=255)
 
     def __str__(self):
         return self.jobname

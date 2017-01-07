@@ -45,7 +45,7 @@ def users(request):
 def jobs(request):
     if request.method == 'GET':
         #default user_level
-        user_level = 1
+        user_level = 100
 
         #returns a dictionary with the values from the SELECT * FROM JOBS query
         jobs = Jobs.objects.all()
@@ -74,7 +74,7 @@ def jobs(request):
                 #return_dict.setdefault(index, []).append(i.description)
                 #return_dict.setdefault(index, []).append(i.expreward)
                 #return_dict.setdefault(index, []).append(i.level_requirement)
-                return_dict[index] = {"jobname": i.jobname, "description": i.description, "expreward": i.expreward, "level_requirement": i.level_requirement }
+                return_dict[index] = {"jobname": i.jobname, "description": i.description, "expreward": i.expreward, "level_requirement": i.level_requirement, "tasks": i.tasks }
                 index = index + 1
 
         #does nothing
