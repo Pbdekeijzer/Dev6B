@@ -171,10 +171,10 @@ def my_view(request):
             }
         )
         # Redirect to a success page.
-        ...
-    else:
-        # Return an 'invalid login' error message.
-        ...
+    #    ...
+    #else:
+    #    # Return an 'invalid login' error message.
+    #    ...
 
 def logout_view(request):
     logout(request)

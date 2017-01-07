@@ -73,8 +73,7 @@
                 $('#MiddleBoxAbove').empty();
                 $('#MiddleBoxAbove').append("<h1>Meme Wars</h1> <p> <h3>Current game information</h3> " +
                     "</p> <p><h4>" +
-                    JobTitle + ", " + CrimeSelected.toString() + " was failed, Terrible job!</h4> </p> <p><h4>You lost " +
-                    AllJobsList[JobNumber-1].expreward + "xp</h4> </p> ");
+                    JobTitle + ", " + CrimeSelected.toString() + " was failed, Terrible job!</h4> </p> <p><h4>You got 0xp</h4> </p> ");
 
 
             }
