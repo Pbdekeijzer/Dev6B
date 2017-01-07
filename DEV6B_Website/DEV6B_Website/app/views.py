@@ -160,7 +160,7 @@ def my_view(request):
         
     else:
         # Return an 'invalid login' error message.
-        
+        int = 43;
 
 def logout_view(request):
     logout(request)
