@@ -4,7 +4,7 @@
     var CrimeSelected;
     var JobTitle;
     var JobTasks;
-    testList = [];
+    AllJobsList = [];
 
     //sends GET request to view.py and returns json
     $.ajax({
@@ -14,12 +14,12 @@
     }).done(function (json) {
         json = JSON.stringify(json);
         $.each(JSON.parse(json), function (idx, obj) {
-            testList.push(obj);
+            AllJobsList.push(obj);
             
         });
 
         var index = 0;
-        testList.forEach(function (element) {
+        AllJobsList.forEach(function (element) {
             index = index + 1;
             $("#AllJobs").append("<div class='well'><p>Job " + element.jobname + "</p><p><a id='TheJobButton' href='#' class='btn btn-primary btn-large'>Select Job "+index+"</a></p></div>");
 
@@ -40,7 +40,7 @@
         JobNumber = JobNumber.split(" ");
         JobNumber = JobNumber[JobNumber.length - 1];
 
-        JobTasks = testList[JobNumber-1].tasks.split(",");
+        JobTasks = AllJobsList[JobNumber-1].tasks.split(",");
 
 
         $('#MiddleBoxDown').empty();
@@ -70,7 +70,7 @@
                     "</p> <p><h4>" +
                     JobTitle + ", " + CrimeSelected.toString() +
                     " was succesfully finished, Good job!</h4> </p> <p><h4>You gained " +
-                    testList[JobNumber-1].expreward + "xp</h4> </p> ");
+                    AllJobsList[JobNumber-1].expreward + "xp</h4> </p> ");
                     
 
             } else {                                        //Otherwise fail message
@@ -78,7 +78,7 @@
                 $('#MiddleBoxAbove').append("<h1>Meme Wars</h1> <p> <h3>Current game information</h3> " +
                     "</p> <p><h4>" +
                     JobTitle + ", " + CrimeSelected.toString() + " was failed, Terrible job!</h4> </p> <p><h4>You lost " +
-                    testList[JobNumber-1].expreward + "xp</h4> </p> ");
+                    AllJobsList[JobNumber-1].expreward + "xp</h4> </p> ");
 
 
             }
