@@ -6,12 +6,13 @@
     });
 
     function login_post() {
-        console.log("login post trying...")
+        console.log("login post trying...") //sanity check
 
+        //The code
         var dbuser = { username: document.getElementById(form.username).value, password: document.getElementById(form.password).value };
         console.log("dbuser:",dbuser)
         $.ajax({
-            url: "login/", // the endpoint
+            url: "tester/", // the endpoint
             type: "POST", // http method
             data: dbuser, // data sent with the post request
 
