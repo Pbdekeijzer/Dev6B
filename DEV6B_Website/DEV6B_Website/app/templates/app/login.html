@@ -3,11 +3,12 @@
 {% block content %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="../../static/app/scripts/OurJavascripts/login.js"></script>
+<script src="../../static/app/scripts/OurJavascripts/LoginModule.js"></script>
 <h2>{{ title }}</h2>
 <div class="row">
     <div id="LoginSide" class="col-md-6">
         <section id="loginForm">
-            <form action="." method="post" class="form-horizontal">
+            <form action="." method="POST" class="form-horizontal" id="post-form" action="/login_post/">
                 {% csrf_token %}
                 <h4>Use an account to log in.</h4>
                 <hr />
@@ -70,6 +71,32 @@
                 <input id="submitButton" type="submit" value="Submit">
                 </form>
             </section>
+    <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br />
+
+                <form>
+                {% csrf_token %}
+                First name: <input id="loginusername" type="text" name="fname"><br>
+                Last name: <input id="loginpassword" type="text" name="lname"><br>
+                <button id="testButton" type="button" class="button"> Log in </button>
+                </form>
+
+    <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> <br /> 
+
+        <form>
+            <fieldset id="logfieldset">
+                <legend>Login information</legend> 
+                <p>  <br> </p>
+                <input type="text" id="lgusername" name="username" size="25" placeholder="Username"><br><br>
+                <input type="password" id="lgpassword" name="password" size="25" placeholder="Password"><br><br>
+                <button id="memeButton" type="button" class="button"> Log In </button>
+                <p id="logintext"> </p>
+            </fieldset>
+        </form>
+
+
+
+
+
         </div>
     </div>
 {% if form.errors %}

@@ -1,7 +1,6 @@
 import django
 from django.test import TestCase, Client
 
-
 # TODO: Configure your database in settings.py and sync before running tests.
 
 class ViewTest(TestCase):
