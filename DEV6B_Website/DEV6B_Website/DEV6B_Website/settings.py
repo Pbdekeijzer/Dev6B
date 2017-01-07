@@ -127,7 +127,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = '/var/lib/jenkins/workspace/Pipeline/DEV6B_Website/DEV6B_Website/app/static/'
+STATIC_ROOT = '/DEV6B_Website/DEV6B_Website/app/static/'
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
