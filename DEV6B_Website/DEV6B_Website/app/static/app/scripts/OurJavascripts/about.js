@@ -66,7 +66,7 @@
                     "</p> <p><h4>" +
                     JobTitle + ", " + CrimeSelected.toString() +
                     " was succesfully finished, Good job!</h4> </p> <p><h4>You gained " +
-                    AllJobsList[JobNumber-1].expreward + "xp</h4> </p> ");
+                    AllJobsList[JobNumber-1].expreward + "xp! <br> See the console to see your current XP</h4> </p> ");
                 UpdateExperience();
 
             } else {                                        //Otherwise fail message
