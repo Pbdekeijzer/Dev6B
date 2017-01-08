@@ -35,7 +35,11 @@
     <script>
     $(document).ready(function() {
         $('#AboutLink').click(function() {
-
+            if (localStorage.getItem("username") != null && localStorage.getItem("username") != undefined) {
+                window.location = this.href;
+            } else {
+                window.location = this.hostname + '/'
+            }
 
         });
                 
