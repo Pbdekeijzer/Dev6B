@@ -3,14 +3,15 @@ Definition of views.
 """
 
 from django.shortcuts import render
-from django.http import HttpRequest
-from django.http import HttpResponse
+from django.http import HttpRequest, HttpResponse, JsonResponse
 from django.template import RequestContext
 from datetime import datetime
-from .models import DataBaseUser, Users
+from .models import DataBaseUser, Users, Jobs
 import json 
 from django.views.decorators.csrf import csrf_exempt
 from .forms import *
+from django.contrib.auth import authenticate, login
+from django.db.models import F
 
 def home(request):
     """Renders the home page."""
@@ -23,6 +24,78 @@ def home(request):
             'year':datetime.now().year,
         }
     )
+
+def experience(request):
+    if request.method == 'POST':
+        exp = request.POST.get('exp')
+        cur_user = request.POST.get('username')
+
+        response_data = {}
+
+        user = Users.objects.get(username=cur_user)
+        print(user)
+        print(user.experience)
+
+        Users.objects.filter(username=cur_user).update(experience=F('experience') + exp)
+        user = Users.objects.get(username=cur_user)
+        print(user)
+        print(user.experience)
+
+        response_data['result'] = 'It works'
+
+        return HttpResponse(json.dumps(response_data),
+                        content_type="application/json")
+    return [], 400
+
+
+def users(request):
+    if request.method == 'GET':
+
+        #different syntax for SELECT * FROM Users
+        users = Users.objects.all()
+
+        return_dict = {}
+
+        index = 0
+
+        #add all users to a dictionary, which gets returned at the end
+        for i in users:
+            return_dict[index] = {"username" : i.username.username, "cash" : i.cash, "experience" : i.experience}
+            index = index + 1
+
+        return JsonResponse(return_dict)
+    return [], 400
+
+def jobs(request):
+    if request.method == 'GET':
+        #default user_level
+        user_level = 100
+
+        #returns a dictionary with the values from the SELECT * FROM JOBS query
+        jobs = Jobs.objects.all()
+        
+        #The ajax get request sends a dictionary with a username to the backend. The view tries to find the username in the database, else user = None
+        dbusername = request.GET.get('username', '')
+        try:
+            user = Users.objects.get(username=dbusername)
+            #enable when actual experience is fixed
+            ######user_level = user.experience / 100
+        except Users.DoesNotExist:
+            user = None
+
+        return_dict = {}
+
+        #to create new keys in the dictionary we need to iterate through a number (index becomes the key for every new entry)
+        index = 0
+
+        for i in jobs:
+            if i.level_requirement <= user_level:  
+                
+                return_dict[index] = {"jobname": i.jobname, "description": i.description, "expreward": i.expreward, "level_requirement": i.level_requirement, "tasks": i.tasks }
+                index = index + 1
+            
+        return JsonResponse(return_dict)
+    return [], 400
 
 def test(request):
     return "lol"
@@ -40,6 +113,22 @@ def contact(request):
         }
     )
 
+def tester(request):
+    if request.method == 'POST':
+        loginusername = request.POST.get('username')
+        loginpassword = request.POST.get('password')
+
+        response_data = {}
+
+        if DataBaseUser.objects.filter(username=loginusername).filter(password=loginpassword):
+            response_data['result'] = 'Pass'
+        else:
+            response_data['result'] = 'Fail'
+
+        return HttpResponse(json.dumps(response_data),
+                            content_type="application/json")
+    return [], 400
+
 def register(request):
     if request.method == 'POST':
         dbusername = request.POST.get('username')
@@ -51,7 +140,6 @@ def register(request):
 
         user = Users(username=dbuser, cash=0, experience=0)
         user.save()
-
 
         response_data['result'] = 'Create post successful!'
 
@@ -65,8 +153,34 @@ def register(request):
             content_type="application/json"
         )
 
+def my_view(request):
+    username = request.POST['username']
+    password = request.POST['password']
+    user = authenticate(username=username, password=password)
+    if user is not None:
+        login(request, user)
+        """Renders the contact page."""
+        assert isinstance(request, HttpRequest)
+        return render(
+            request,
+            'app/contact.html',
+            {
+                'title':'Contact',
+                'message':'Your contact page.',
+                'year':datetime.now().year,
+            }
+        )
+    #    # Redirect to a success page.
+    #    ...
+    #else:
+    #    # Return an 'invalid login' error message.
+    #    ...
 
+def logout_view(request):
+    logout(request)
 
+def login_view(request):
+    login(request)
 
 
 
@@ -91,9 +205,6 @@ def register(request):
     #        json.dumps({"nothing to see": "this isn't happening"}),
     #        content_type="application/json"
     #    )
-
-def users(request):
-    return HTTPResponse("EMPTY")
 
 def about(request):
     """Renders the about page."""

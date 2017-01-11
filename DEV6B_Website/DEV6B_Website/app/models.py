@@ -19,13 +19,14 @@ class Users(models.Model):
     experience = models.PositiveIntegerField(default=0  )
 
     def __str__(self):
-        return self.username
+        return self.username.username
 
 class Jobs(models.Model):
     jobname = models.CharField(max_length=30, primary_key=True)
     description = models.CharField(max_length=100)
     expreward = models.PositiveIntegerField()
     level_requirement = models.PositiveIntegerField()
+    tasks = models.CharField(max_length=255)
 
     def __str__(self):
         return self.jobname

@@ -4,74 +4,32 @@
 {% block content %}
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="../../static/app/scripts/OurJavascripts/login.js"></script>
+{#<script src="../../static/app/scripts/OurJavascripts/LoginModule.js"></script>#}
 <h2>{{ title }}</h2>
 <div class="row">
     <div id="LoginSide" class="col-md-6">
         <section id="loginForm">
-            <form action="." method="post" class="form-horizontal">
+            <br>
+                <form>
                 {% csrf_token %}
-                <h4>Use an account to log in.</h4>
-                <hr />
-                <div class="form-group">
-                    <label for="id_username" class="col-md-2 control-label">User name</label>
-                    <div class="col-md-10">
-                        {{ form.username }}
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="id_password" class="col-md-2 control-label">Password</label>
-                    <div class="col-md-10">
-                        {{ form.password }}
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="hidden" name="next" value="/" />
-                        <input id="LoginButton" type="submit" value="Log in" class="btn btn-default" />
-                    </div>
-                </div>
-            </form>
+                First name: <input id="loginusername" type="text" name="fname"><br><br>
+                Last name: <input id="loginpassword" type="text" name="lname"><br><br>
+                <button id="testButton" type="button" class="button"> Registreer </button><br>
+                </form>
         </section>
     </div>
 
     <div id="RegisterSide" class="col-md-6">
         <section id="RegisterForm">
-            <form action="." method="post" class="form-horizontal">
-                    {% csrf_token %}
-                    <h4>Make an account for this website.</h4>
-                    <hr />
-                    <div class="form-group">
-                        <label for="id_username_register" class="col-md-2 control-label">User name</label>
-                        <div class="col-md-10">
-                            {{ form.username_for_register }}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="id_password_register" class="col-md-2 control-label">Password</label>
-                        <div class="col-md-10">
-                            {{ form.password_for_register }}
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
-                            <input type="hidden" name="next" value="/" />
-                            <input id="RegisterButton" type="submit" value="Register" class="btn btn-default" />
-                        </div>
-                    </div>
-                </div>
-            </form>
-            
-
-        </section>
-    </div>
+            <br>
                 <form id="post-form" action="/create_post/" method="POST">
                 {% csrf_token %}
-                First name: <input id="dbusername" type="text" name="fname"><br>
-                Last name: <input id="dbpassword" type="text" name="lname"><br>
-                <input id="submitButton" type="submit" value="Submit">
+                First name: <input id="dbusername" type="text" name="fname"><br><br>
+                Last name: <input id="dbpassword" type="text" name="lname"><br><br>
+                <input id="submitButton" type="submit" value="Login"><br>
                 </form>
-            </section>
-        </div>
+        </section>
+    </div>
     </div>
 {% if form.errors %}
     <p class="validation-summary-errors">Please enter a correct user name and password.</p>

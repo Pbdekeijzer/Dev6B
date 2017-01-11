@@ -17,10 +17,14 @@ admin.autodiscover()
 urlpatterns = [
     # Examples:
     url(r'^$', app.views.home, name='home'),
+    url(r'^tester', app.views.tester, name='tester'),
     url(r'^test$', app.views.test, name='test'),
     url(r'^contact$', app.views.contact, name='contact'),
     url(r'^about', app.views.about, name='about'),
     url(r'^register', app.views.register, name='register'),
+    url(r'^jobs', app.views.jobs, name='jobs'),
+    url(r'^users', app.views.users, name='users'),
+    url(r'^experience', app.views.experience, name='experience'),
     url(r'^login/register', app.views.register, name='register'),
     url(r'^login', 
         django.contrib.auth.views.login,

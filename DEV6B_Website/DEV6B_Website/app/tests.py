@@ -5,7 +5,7 @@ when you run "manage.py test".
 
 import django
 from django.test import TestCase
-
+from django.test import Client
 
 # TODO: Configure your database in settings.py and sync before running tests.
 
@@ -19,21 +19,36 @@ class ViewTest(TestCase):
             super(ViewTest, cls).setUpClass()
             django.setup()
 
-    def test_truetest(self):
-        test = True
-        self.assertTrue(test)
+class TemplateTest(TestCase):        
+    def test_templateindex(self):
+        client = Client()
+        response = client.get('/')
+        self.assertTemplateUsed(response, "app/index.html")
 
-    def test_falsetest(self):
-        test = False
-        self.assertFalse(test)
-    
-    def test_lasttest(self):
-        test1 = 5
-        test2 = 5
-        self.assertEqual(test1, test2)
-    
-    def test_somemoretests(self):
-        hoi = "lol"
-        self.assertEqual(hoi, "lol")
+    def test_templateabout(self):
+        client = Client()
+        response = client.get('/about')
+        self.assertTemplateUsed(response, "app/about.html")
 
-    
+    def test_templatelogin(self):
+        client = Client()
+        response = client.get('/login')
+        self.assertTemplateUsed(response, "app/login.html")
+
+class ResponseTest(TestCase):           
+    def test_responseindex(self):
+        client = Client()
+        response = client.get('/')
+        self.assertEqual(response.status_code, 200)
+
+    def test_responseabout(self):
+        client = Client()
+        response = client.get('/about')
+        self.assertEqual(response.status_code, 200)
+
+    def test_responselogin(self):
+        client = Client()
+        response = client.get('/login')
+        self.assertEqual(response.status_code, 200)
+
+
