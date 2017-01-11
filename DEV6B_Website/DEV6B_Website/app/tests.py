@@ -51,5 +51,4 @@ class ResponseTest(TestCase):
         response = client.get('/login')
         self.assertEqual(response.status_code, 200)
 
-#These are the tests
 
