@@ -10,7 +10,7 @@
 
     $('#post-form').on('submit', function (event) {
         event.preventDefault();
-        console.log("form submitted!")  // sanity check
+        console.log("form submitted!"); // sanity check
         create_post();
     });
     
@@ -46,7 +46,7 @@
     });
 
     function login() {
-        console.log("create post is working!") // sanity check
+        console.log("create post is working!"); // sanity check
 
         var dbuser = { username: document.getElementById("loginusername").value, password: document.getElementById("loginpassword").value };
 

@@ -11,6 +11,7 @@ import json
 from django.views.decorators.csrf import csrf_exempt
 from .forms import *
 from django.contrib.auth import authenticate, login
+from django.db.models import F
 
 def home(request):
     """Renders the home page."""
@@ -23,6 +24,29 @@ def home(request):
             'year':datetime.now().year,
         }
     )
+
+def experience(request):
+    if request.method == 'POST':
+        exp = request.POST.get('exp')
+        cur_user = request.POST.get('username')
+
+        response_data = {}
+
+        user = Users.objects.get(username=cur_user)
+        print(user)
+        print(user.experience)
+
+        Users.objects.filter(username=cur_user).update(experience=F('experience') + exp)
+        user = Users.objects.get(username=cur_user)
+        print(user)
+        print(user.experience)
+
+        response_data['result'] = 'It works'
+
+        return HttpResponse(json.dumps(response_data),
+                        content_type="application/json")
+    return [], 400
+
 
 def users(request):
     if request.method == 'GET':
@@ -58,9 +82,6 @@ def jobs(request):
             ######user_level = user.experience / 100
         except Users.DoesNotExist:
             user = None
-        
-        #test
-        print(user)
 
         return_dict = {}
 
@@ -70,15 +91,8 @@ def jobs(request):
         for i in jobs:
             if i.level_requirement <= user_level:  
                 
-                #return_dict.setdefault(index, []).append(i.jobname)
-                #return_dict.setdefault(index, []).append(i.description)
-                #return_dict.setdefault(index, []).append(i.expreward)
-                #return_dict.setdefault(index, []).append(i.level_requirement)
                 return_dict[index] = {"jobname": i.jobname, "description": i.description, "expreward": i.expreward, "level_requirement": i.level_requirement, "tasks": i.tasks }
                 index = index + 1
-
-        #does nothing
-        #return_dict = json.dumps(list(jobs))
             
         return JsonResponse(return_dict)
     return [], 400
@@ -156,11 +170,11 @@ def my_view(request):
                 'year':datetime.now().year,
             }
         )
-        # Redirect to a success page.
-        ...
-    else:
-        # Return an 'invalid login' error message.
-        ...
+    #    # Redirect to a success page.
+    #    ...
+    #else:
+    #    # Return an 'invalid login' error message.
+    #    ...
 
 def logout_view(request):
     logout(request)
